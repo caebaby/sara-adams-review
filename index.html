@@ -1,0 +1,426 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Sara Adams | WORTH Wealth Management (direction A)</title>
+<script>document.documentElement.classList.add('js')</script>
+<link rel="stylesheet" href="shared/base.css">
+<style>
+
+.hero { position: relative; min-height: 100vh; padding: calc(var(--nav-h) + 40px) var(--gut) 11vh; display: grid; grid-template-columns: 5fr 7fr; gap: 0 4vw; align-items: center; overflow: clip; }
+.hero-copy { position: relative; z-index: 3; padding-bottom: 8vh; }
+.hero h1 { font-size: clamp(46px, 6vw, 92px); line-height: .98; }
+.hero h1 span { display: block; }
+.hero .lede { margin: 30px 0 34px; max-width: 30ch; color: var(--ink-2); }
+.hero .draft { margin-top: 18px; }
+.stage { position: relative; height: min(78vh, 760px); align-self: center; margin-top: 2vh; margin-right: calc(var(--gut) * -1); }
+.window { position: absolute; z-index: 1; inset: 0 0 0 16%; overflow: hidden; background: var(--greige); box-shadow: var(--sh-card); }
+.window video, .window img { width: 100%; height: 100%; object-fit: cover; scale: 1.08; }
+.frame { position: absolute; inset: -26px -60px 26px calc(16% - 26px); z-index: 0; border: 1px solid var(--gold); pointer-events: none; }
+.print { position: absolute; z-index: 4; left: 0; bottom: 9%; width: clamp(220px, 19vw, 300px); padding: 14px 14px 0; background: var(--cream); box-shadow: var(--sh-print); }
+.print img { aspect-ratio: 4/5; object-fit: cover; object-position: 50% 28%; width: 100%; }
+.print figcaption { display: block; text-align: center; padding: 15px 0 17px; font: italic 400 21px/1 var(--display); color: var(--ink); }
+.print figcaption small { display: block; margin-top: 6px; font: 500 9.5px/1 var(--sans); letter-spacing: .22em; text-transform: uppercase; color: var(--ink-2); font-style: normal; }
+.hero .film-ctl { right: calc(var(--gut) + 6px); }
+.scrollcue { position: absolute; left: var(--gut); bottom: 26px; font: 500 11px/1 var(--sans); letter-spacing: .2em; text-transform: uppercase; color: var(--ink-2); display: flex; gap: 12px; align-items: center; }
+.scrollcue i { width: 1px; height: 36px; background: var(--ink-2); transform-origin: top; animation: cue 2.4s var(--ease) infinite; }
+@keyframes cue { 0% { transform: scaleY(0); } 50% { transform: scaleY(1); } 100% { transform: scaleY(1); opacity: 0; } }
+
+
+.letter > * { min-width: 0; }
+.letter { position: relative; padding: 16vh var(--gut) 14vh; display: grid; grid-template-columns: 4fr 8fr; gap: 6vw; background: linear-gradient(var(--ivory), #EFE7DA); }
+.letterhead { text-align: center; margin: 0 0 34px; padding-bottom: 26px; border-bottom: 1px solid rgba(190,155,99,.55); }
+.letterhead span { display: block; font: italic 400 19px/1 var(--display); color: var(--ink-2); }
+.letterhead b { display: block; margin-top: 8px; font: 400 clamp(30px, 2.8vw, 42px)/1 var(--display); letter-spacing: .04em; color: var(--ink); }
+.sheet .body p + p { margin-top: 1em; }
+.sheet .sample { display: block; margin-bottom: 18px; }
+.letter-side { position: sticky; top: 120px; align-self: start; }
+.letter-side h2 { font-size: clamp(40px, 4.6vw, 68px); }
+.letter-side .print { position: relative; left: auto; bottom: auto; margin-top: 48px; width: min(270px, 78%); }
+.env-wrap { position: relative; --f: 0; --k: 0; --d: 0; }
+.env-stage { position: relative; perspective: 1800px; }
+.env-back, .pocket, .flap { position: absolute; left: 50%; width: min(660px, 92%); translate: -50% 0; pointer-events: none; }
+.env-back { top: 30px; height: 400px; z-index: 1; background: #D6C3A9; box-shadow: 0 40px 70px -40px rgba(54,51,46,.45); transform: translateY(calc(var(--d) * 260px)); opacity: calc(1 - var(--d)); }
+.pocket { top: 150px; height: 280px; z-index: 3; background: linear-gradient(180deg, #E8DAC5, #E1D0B8); clip-path: polygon(0 0, 50% 44%, 100% 0, 100% 100%, 0 100%); transform: translateY(calc(var(--d) * 260px)); opacity: calc(1 - var(--d)); }
+.pocket::after { content: 'W'; position: absolute; left: 50%; top: 52%; translate: -50% 0; font: 500 54px/1 var(--display); color: #E8DAC5; text-shadow: -1px -1px 0 rgba(255,255,255,.7), 1px 1px 1px rgba(126,96,52,.35); }
+.flap { top: 30px; height: 262px; z-index: 4; background: #D3BF9F; clip-path: polygon(0 0, 100% 0, 50% 100%); transform-origin: 50% 0; transform: translateY(calc(var(--d) * 260px)) rotateX(calc(var(--f) * 180deg)); opacity: calc(1 - var(--d)); }
+.env-wrap.open .flap { z-index: 0; background: #CDB898; }
+.sheet { position: relative; z-index: 2; background: var(--cream) url(assets/ai/paper-linen.webp) 50% 0 / 1500px; padding: clamp(36px, 5vw, 76px) clamp(28px, 5vw, 80px) 60px; box-shadow: var(--sh-card), 0 0 0 1px rgba(54,51,46,.06);
+  transform-origin: 50% 0; transform: translateY(calc((1 - var(--k)) * 140px)) scale(calc(.6 + .4 * var(--k))); clip-path: inset(0 0 calc((1 - var(--k)) * 64%) 0); }
+.final .env-wrap, .reduce .env-wrap { padding-bottom: 0; }
+.final .env-stage, .reduce .env-stage { position: static; }
+.final .env-back, .final .pocket, .final .flap, .reduce .env-back, .reduce .pocket, .reduce .flap { display: none; }
+.final .sheet, .reduce .sheet { transform: none; clip-path: none; }
+.sheet::before { content: ''; position: absolute; inset: 0; background: rgba(250,245,238,.82); }
+.sheet > * { position: relative; }
+.emboss { position: absolute; right: 48px; top: 40px; font: 500 120px/1 var(--display); color: var(--cream); text-shadow: -1px -1px 0 rgba(255,255,255,.9), 1px 1px 1px rgba(126,96,52,.28); opacity: .9; }
+.sheet .salute { font: italic 400 26px/1.2 var(--display); color: var(--ink); margin-bottom: 18px; }
+.sheet .body { font: 500 clamp(20px, 1.7vw, 24px)/1.55 var(--display); max-width: 60ch; }
+.sheet .ghost-lines { --lines: 12; }
+.sig { margin-top: 30px; height: 90px; width: 420px; max-width: 100%; }
+.sig text { font-family: var(--script); font-size: 64px; fill: transparent; stroke: var(--ink); stroke-width: .8; stroke-dasharray: 1400; stroke-dashoffset: 1400; }
+.sig.in text { animation: draw 3.2s var(--ease) forwards; }
+@keyframes draw { 70% { fill: transparent; } to { stroke-dashoffset: 0; fill: var(--ink); } }
+.final .sig text, .reduce .sig text { stroke-dashoffset: 0; fill: var(--ink); animation: none; }
+.signoff { font-size: 14px; color: var(--ink-2); letter-spacing: .04em; }
+
+
+.who { padding: 12vh var(--gut) 14vh; }
+.who-head { display: flex; justify-content: space-between; align-items: end; gap: 40px; margin-bottom: 5vh; }
+.who-head h2 { font-size: clamp(42px, 5.4vw, 84px); max-width: 12ch; }
+.who-head p { max-width: 34ch; color: var(--ink-2); }
+.panels { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.4vw; align-items: start; }
+.panel:nth-child(2) { margin-top: 7vh; }
+.panel:nth-child(3) { margin-top: 3vh; }
+.panel .ph { position: relative; aspect-ratio: 4/5.4; overflow: hidden; box-shadow: var(--sh-print); color: var(--cream); }
+.panel .ph img { width: 100%; height: 118%; object-fit: cover; margin-top: -9%; transition: scale 1400ms var(--ease); }
+.panel .ph::after { content: ''; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(30,36,27,.86) 0%, rgba(30,36,27,.35) 34%, rgba(30,36,27,0) 52%); transition: opacity 800ms var(--ease); }
+.panel .ph::before { content: ''; position: absolute; inset: 0; z-index: 1; background: rgba(30,36,27,.5); opacity: 0; transition: opacity 800ms var(--ease); }
+.panel .cap { position: absolute; z-index: 2; left: 28px; right: 28px; bottom: 26px; }
+.panel h3 { font-size: clamp(26px, 2.2vw, 34px); line-height: 1.04; }
+.panel .cap .more { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 800ms var(--ease); }
+.panel .cap .more > div { overflow: hidden; }
+.panel .cap .more p { padding-top: 14px; color: rgba(250,245,238,.92); max-width: 30ch; }
+.panel .cap .more .slot { color: #F1E2C4; }
+.panel .cap .hint { display: inline-flex; gap: 10px; align-items: center; margin-top: 14px; font: 500 10.5px/1 var(--sans); letter-spacing: .2em; text-transform: uppercase; opacity: .85; transition: opacity 400ms var(--ease); }
+.panel .cap .hint i { width: 22px; height: 1px; background: currentColor; }
+.panel:hover .ph img, .panel:focus-within .ph img { scale: 1.06; }
+.panel:hover .ph::before, .panel:focus-within .ph::before { opacity: 1; }
+.panel:hover .more, .panel:focus-within .more { grid-template-rows: 1fr; }
+.panel:hover .hint, .panel:focus-within .hint { opacity: 0; }
+@media (hover: none) { .panel .cap .more { grid-template-rows: 1fr; } .panel .hint { display: none !important; } }
+.final .panel .cap .more, .reduce .panel .cap .more { grid-template-rows: 1fr; }
+.final .panel .hint, .reduce .panel .hint { display: none; }
+
+
+.story-sec { padding: 4vh var(--gut) 12vh; display: grid; grid-template-columns: 4fr 8fr; gap: 6vw; align-items: center; background: #EFE7DA; }
+.story-sec h2 { font-size: clamp(38px, 4.2vw, 64px); }
+.story-sec p { margin-top: 20px; color: var(--ink-2); max-width: 32ch; }
+
+
+.practice { padding: 16vh var(--gut) 16vh; display: grid; grid-template-columns: 5fr 7fr; gap: 7vw; align-items: center; }
+.pframe { position: relative; justify-self: center; width: min(400px, 100%); }
+.pframe::before { content: ''; position: absolute; inset: 34px -34px -34px 34px; border: 1px solid var(--gold); }
+.practice .print { position: relative; left: auto; bottom: auto; width: 100%; }
+.practice h2 { font-size: clamp(40px, 4.4vw, 68px); margin-bottom: 28px; }
+.practice .ghost-lines { --lines: 4; }
+.facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin: 44px 0 40px; border-top: 1px solid rgba(54,51,46,.16); }
+.facts div { padding: 20px 18px 0 0; }
+.facts div + div { padding-left: 20px; border-left: 1px solid rgba(54,51,46,.16); }
+.facts dt { font: italic 400 20px/1.2 var(--display); color: var(--ink-2); }
+.facts dd { margin: 8px 0 0; font-size: 15px; }
+
+
+.box { position: relative; height: 72vh; overflow: hidden; }
+.box video, .box img { position: absolute; inset: -8% 0; width: 100%; height: 116%; object-fit: cover; }
+.box { height: 84vh; min-height: 560px; display: grid; place-items: center; }
+.box::after { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 70% at 50% 50%, rgba(30,36,27,.62), rgba(30,36,27,.28) 70%, rgba(30,36,27,.2)); }
+.box figure { position: relative; z-index: 2; margin: 0; padding: 0 var(--gut); text-align: center; color: var(--cream); max-width: 1100px; }
+.box .mk { display: block; font: italic 300 120px/.6 var(--display); color: var(--gold); opacity: .9; margin-bottom: 18px; }
+.box blockquote { margin: 0 auto; max-width: 24ch; font: 300 clamp(32px, 3.7vw, 58px)/1.12 var(--display); text-wrap: balance; text-shadow: 0 2px 30px rgba(0,0,0,.25); }
+.box figcaption { margin-top: 30px; font: italic 400 24px/1 var(--display); color: #F1E2C4; }
+.box figcaption .draft { margin-left: 10px; }
+
+
+.first { position: relative; display: grid; grid-template-columns: 7fr 5fr; padding: 16vh 0 14vh; align-items: center; }
+.first .pic { position: relative; height: 84vh; overflow: hidden; }
+.first .pic img { width: 100%; height: 112%; object-fit: cover; }
+.first .card { position: relative; z-index: 2; margin-left: -9vw; margin-right: var(--gut); background: var(--cream); padding: clamp(32px, 4vw, 64px); box-shadow: var(--sh-lift); }
+.first h2 { font-size: clamp(36px, 3.8vw, 58px); margin-bottom: 30px; }
+.steps { list-style: none; margin: 0 0 36px; padding: 0; }
+.steps li { position: relative; padding: 16px 0 16px 34px; border-top: 1px solid rgba(54,51,46,.14); }
+.steps li::before { content: ''; position: absolute; left: 4px; top: 27px; width: 8px; height: 8px; background: var(--gold); transform: rotate(45deg); }
+
+
+.res { padding: 14vh var(--gut) 16vh; background: #EFE7DA; }
+.res-head { display: flex; justify-content: space-between; align-items: end; gap: 30px; margin-bottom: 6vh; }
+.res-head h2 { font-size: clamp(42px, 5vw, 78px); max-width: 12ch; }
+.res-head p { max-width: 34ch; color: var(--ink-2); }
+.cards { display: grid; grid-template-columns: 1.25fr 1fr 1fr; gap: 2.4vw; }
+.rcard { position: relative; background: var(--cream); box-shadow: var(--sh-card); text-decoration: none; display: flex; flex-direction: column; transition: transform var(--mid) var(--ease), box-shadow var(--mid) var(--ease); }
+.rcard:hover { transform: translateY(-6px); box-shadow: var(--sh-lift); }
+.rcard .im { overflow: hidden; aspect-ratio: 4/3; }
+.rcard:first-child .im { aspect-ratio: 4/3.4; }
+.rcard img { width: 100%; height: 100%; object-fit: cover; transition: scale 1400ms var(--ease); }
+.rcard:hover img { scale: 1.05; }
+.rcard .tx { padding: 26px 28px 30px; display: flex; flex-direction: column; gap: 12px; flex: 1; }
+.rcard .kind { font: italic 400 18px/1 var(--display); color: var(--gold-ink); }
+.rcard h3 { font-size: clamp(24px, 2vw, 32px); line-height: 1.1; }
+.rcard .go { margin-top: auto; padding-top: 14px; display: inline-flex; gap: 12px; align-items: center; font: 500 11.5px/1 var(--sans); letter-spacing: .2em; text-transform: uppercase; }
+.rcard .go i { width: 22px; height: 1px; background: currentColor; transition: width var(--fast) var(--ease); }
+.rcard:hover .go i { width: 34px; }
+.res-foot { margin-top: 44px; display: flex; gap: 20px; align-items: center; flex-wrap: wrap; }
+
+
+.foot2 { position: relative; overflow: hidden; background: var(--sage-night); color: #D9D2C4; padding: 90px var(--gut) 0; font-size: 14.5px; }
+.foot2 .top { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1.2fr; gap: 40px; padding-bottom: 54px; border-bottom: 1px solid rgba(217,210,196,.18); }
+.foot2 .mark b { font-size: 30px; color: var(--cream); }
+.foot2 .tag { margin-top: 22px; font: italic 300 26px/1.2 var(--display); color: #E9D6B0; max-width: 16ch; }
+.foot2 h4 { margin: 0 0 18px; font: italic 400 19px/1 var(--display); color: #E9D6B0; }
+.foot2 ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 11px; }
+.foot2 a { text-decoration: none; }
+.foot2 ul a:hover { color: var(--cream); text-decoration: underline; text-underline-offset: 4px; }
+.foot2 .slot.on-dark { font-size: 14px; }
+.foot2 .legal2 { display: grid; grid-template-columns: 1fr 1fr; gap: 18px 48px; padding: 40px 0 30px; font-size: 12.5px; line-height: 1.65; color: #B9B2A4; }
+.foot2 .legal2 p { max-width: 70ch; }
+.foot2 .links { display: flex; flex-wrap: wrap; gap: 12px 26px; padding: 22px 0; border-top: 1px solid rgba(217,210,196,.14); font-size: 11.5px; letter-spacing: .14em; text-transform: uppercase; }
+.foot2 .links span { margin-left: auto; letter-spacing: .04em; text-transform: none; color: #9E978A; }
+.foot2 .giant { display: block; margin: 10px calc(var(--gut) * -0.2) 0; font: 400 clamp(90px, 31vw, 520px)/.74 var(--display); letter-spacing: .02em; text-align: center; color: transparent;
+  background: linear-gradient(180deg, rgba(190,155,99,.42), rgba(190,155,99,.06) 85%); -webkit-background-clip: text; background-clip: text; translate: 0 18%; user-select: none; }
+
+
+.close { position: relative; min-height: 100vh; overflow: hidden; display: flex; align-items: flex-end; padding: 0 var(--gut) 10vh; }
+.close video, .close > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.close::before { content: ''; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(42,48,37,.45), transparent 55%); z-index: 1; }
+.close .card { position: relative; z-index: 2; background: var(--cream); padding: clamp(34px, 4.6vw, 72px); max-width: 640px; min-width: 300px; box-shadow: var(--sh-lift); }
+.close .card .peek { background: var(--sage); color: var(--cream); }
+.close .card .what { margin: -10px 0 30px; color: var(--ink-2); max-width: 34ch; }
+.close .card .emboss { position: absolute; right: 30px; top: 22px; font-size: 90px; }
+.close h2 { font-size: clamp(40px, 4.4vw, 68px); margin-bottom: 34px; max-width: 13ch; }
+
+@media (max-width: 899px) {
+  .hero { grid-template-columns: 1fr; padding-top: calc(var(--nav-h) + 8px); min-height: auto; }
+  .stage { order: -1; height: 64vh; margin: 0 calc(var(--gut) * -1); }
+  .window { inset: 0 0 0 18%; }
+  .frame { display: none; }
+  .print { width: 46%; bottom: -6%; padding: 8px 8px 30px; }
+  .print figcaption { font-size: 16px; padding: 10px 0 12px; }
+  .print figcaption small { display: none; }
+  .hero-copy { padding: 60px 0 70px; }
+  .scrollcue { display: none; }
+  .letter { grid-template-columns: 1fr; padding-top: 10vh; }
+  .letter-side { position: static; }
+  .letter-side .print { display: none; }
+  .env-wrap { padding-bottom: 0; }
+  .env-stage { position: static; }
+  .env-back, .pocket, .flap { display: none; }
+  .sheet { transform: none; clip-path: none; }
+  .btn { letter-spacing: .14em; padding: 0 20px; }
+  .emboss { font-size: 70px; right: 20px; top: 20px; }
+  .who-head { display: block; }
+  .who-head p { margin-top: 18px; }
+  .panels { grid-template-columns: 1fr; gap: 54px; }
+  .panel:nth-child(n) { margin-top: 0; }
+  .box { height: 60vh; }
+  .first { grid-template-columns: 1fr; padding-top: 0; }
+  .first .pic { height: 52vh; }
+  .first .card { margin: -12vh var(--gut) 0; }
+  .story-sec, .practice { grid-template-columns: 1fr; gap: 40px; }
+  .res-head { display: block; } .res-head p { margin-top: 16px; }
+  .cards { grid-template-columns: 1fr; gap: 28px; }
+  .foot2 .top, .foot2 .legal2 { grid-template-columns: 1fr; }
+  .foot2 .links span { margin-left: 0; width: 100%; }
+  .box .mk { font-size: 80px; }
+  .pframe { width: 78%; }
+  .facts { grid-template-columns: 1fr; }
+  .facts div + div { padding-left: 0; border-left: 0; border-top: 1px solid rgba(54,51,46,.16); padding-bottom: 16px; }
+  .panel .ph { aspect-ratio: 4/4.6; }
+  .close { padding-bottom: 6vh; }
+  .close .btn { width: 100%; justify-content: center; }
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav">
+  <a class="mark" href="#top" aria-label="WORTH Wealth Management, home"><b>WORTH</b><small>Wealth Management</small></a>
+  <button class="menu-btn" aria-expanded="false" aria-label="Menu"><span></span><span></span></button>
+  <ul>
+    <li><a href="#letter">About</a></li>
+    <li><a href="#first">How it starts</a></li>
+    <li><a class="btn" href="#close">Book a conversation</a></li>
+  </ul>
+</header>
+
+<main id="main">
+<section class="hero" id="top">
+  <div class="hero-copy">
+    <h1 class="rv"><span>Your story matters.</span><span>Your future is <em class="turn">worth</em> planning for.</span></h1>
+    <span class="draft rv" style="--d:1">Draft line from her brand boards, Sara to confirm</span>
+    <p class="lede rv" style="--d:2"><span class="slot">Sara: one short line, who you help (up to seven words)</span></p>
+    <a class="btn rv" style="--d:3" href="#close">Book a conversation <span class="arr"></span></a>
+  </div>
+  <div class="stage">
+    <div class="frame"></div>
+    <div class="window wipe">
+      <video id="f1" data-film autoplay muted loop playsinline poster="assets/film/linen-window.webp" data-par="0.06"><source src="assets/film/linen-window.mp4" type="video/mp4"></video>
+    </div>
+    <figure class="print rv" data-par="-0.12" style="--d:2;margin:0"><img src="assets/photos/bench-hand-chin.webp" alt="Sara Adams seated on a stone garden bench in a cream suit, smiling"><figcaption>Sara Adams<small>WORTH Wealth Management</small></figcaption></figure>
+    <button class="film-ctl" aria-controls="f1" aria-label="Pause film"></button>
+  </div>
+  <div class="scrollcue" aria-hidden="true"><i></i>A letter from Sara</div>
+</section>
+
+<div class="seam" aria-hidden="true"><span>W</span></div>
+
+<section class="letter trellis" id="letter">
+  <div class="letter-side">
+    <h2 class="rv">Why I do <em class="turn">this</em> work</h2>
+    <figure class="print rv" style="--d:1;margin-top:54px"><img src="assets/photos/brick-lean-close.webp" alt="Sara Adams leaning against a brick wall, smiling" loading="lazy"><figcaption>Sara Adams</figcaption></figure>
+  </div>
+  <div class="env-wrap" id="env">
+   <div class="env-stage">
+    <div class="env-back" aria-hidden="true"></div>
+    <div class="flap" aria-hidden="true"></div>
+    <article class="sheet">
+      <p class="letterhead"><span>From the desk of</span><b>Sara Adams</b></p>
+      <span class="draft sample">Sara's letter, about 180 words, in her own voice. Placeholder lines on this review copy.</span>
+      <div class="body">
+        <p><span class="slot">Paragraph one: the moment that brought Sara to this work, in her words.</span></p>
+        <p><span class="slot">Paragraph two: who she hopes is reading, and what it is like to sit across the table from her.</span></p>
+        <p><span class="slot">Paragraph three: what she wants you to know before you reach out.</span></p>
+        <span class="ghost-lines" style="--lines:5" aria-hidden="true"></span>
+      </div>
+      <svg class="sig" data-in viewBox="0 0 420 90" role="img" aria-label="Signed, Sara Adams"><text x="4" y="66">Sara Adams</text></svg>
+      <p class="signoff">Founder, WORTH Wealth Management <span class="draft">Confirm the title the firm allows</span> <span class="draft">Script until her signature scan arrives</span></p>
+    </article>
+    <div class="pocket" aria-hidden="true"></div>
+   </div>
+  </div>
+</section>
+
+<section class="story-sec" id="story" aria-label="Sara's story film">
+  <div>
+    <h2 class="rv">Sara's story, <em class="turn">on film</em></h2>
+    <p class="rv" style="--d:1"><span class="slot">Sara: one line to introduce the film, up to 15 words</span></p>
+  </div>
+  <figure class="story rv" style="--d:1;margin:0">
+    <div class="screen">
+      <img src="assets/film/olive-shadow.webp" alt="" loading="lazy">
+      <button class="play" type="button" aria-label="Play Sara's story film (coming soon)" disabled><svg viewBox="0 0 22 22"><path d="M3 1l17 10L3 21z" fill="currentColor"/></svg></button>
+      <div class="label"><b>Her story</b><span class="draft" style="color:#E8DFD0;border-color:rgba(232,223,208,.4)">Story film in production</span></div>
+    </div>
+  </figure>
+</section>
+
+<section class="who trellis" id="who">
+  <div class="who-head">
+    <h2 class="rv">For life's defining moments</h2>
+    <p class="rv" style="--d:1">Groups and opening lines from her brand boards. <span class="draft">Sara to confirm</span></p>
+  </div>
+  <div class="panels">
+    <article class="panel">
+      <div class="ph wipe" tabindex="0"><img src="assets/ai/keys-letter.webp" alt="" data-par="0.05" loading="lazy">
+        <div class="cap"><h3>Navigating divorce and life transitions</h3><div class="more"><div><p>Clarity and confidence as you move into your next chapter. <span class="slot on-dark">Sara: the rest of this line, in her words</span></p></div></div><span class="hint" aria-hidden="true"><i></i>Read more</span></div>
+      </div>
+    </article>
+    <article class="panel">
+      <div class="ph wipe" tabindex="0"><img src="assets/ai/owner-desk.webp" alt="" data-par="0.05" loading="lazy">
+        <div class="cap"><h3>Business owners and entrepreneurs</h3><div class="more"><div><p>Grow what you have built and plan for the impact you want to leave. <span class="slot on-dark">Sara: the rest of this line</span></p></div></div><span class="hint" aria-hidden="true"><i></i>Read more</span></div>
+      </div>
+    </article>
+    <article class="panel">
+      <div class="ph wipe" tabindex="0"><img src="assets/ai/family-table.webp" alt="" data-par="0.05" loading="lazy">
+        <div class="cap"><h3>Individuals and families</h3><div class="more"><div><p>Build, preserve and pass on wealth across generations. <span class="slot on-dark">Sara: the rest of this line</span></p></div></div><span class="hint" aria-hidden="true"><i></i>Read more</span></div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="box" aria-label="A line from Sara">
+  <video id="f2" data-film autoplay muted loop playsinline poster="assets/film/garden-bench.webp" data-par="0.08"><source src="assets/film/garden-bench.mp4" type="video/mp4"></video>
+  <figure class="on-dark"><span class="mk rv" aria-hidden="true">&ldquo;</span><blockquote class="rv" style="--d:1"><span class="slot on-dark">A line of hers, in her own words, set large over the film</span></blockquote><figcaption class="rv" style="--d:2">Sara Adams <span class="draft">Sara to choose the line</span></figcaption></figure>
+  <button class="film-ctl" aria-controls="f2" aria-label="Pause film"></button>
+</section>
+
+<section class="first" id="first">
+  <div class="pic wipe"><img src="assets/ai/coffee-table.webp" alt="" data-par="0.06" loading="lazy"></div>
+  <div class="card rv">
+    <h2>What our first conversation looks like</h2>
+    <ol class="steps">
+      <li><span class="slot">Sara's first step, up to 20 words</span></li>
+      <li><span class="slot">Her second step</span></li>
+      <li><span class="slot">Her third step</span></li>
+      <li><span class="slot">A fourth, if she has one</span></li>
+    </ol>
+    <a class="btn" href="#close">Book a conversation <span class="arr"></span></a>
+  </div>
+</section>
+
+<section class="practice trellis" id="practice">
+  <div class="pframe rv"><figure class="print" style="margin:0"><img src="assets/photos/brick-lean.webp" alt="Sara Adams leaning against a brick wall, smiling" loading="lazy" style="aspect-ratio:4/5.2;object-position:50% 30%"><figcaption>Sara Adams</figcaption></figure></div>
+  <div>
+    <h2 class="rv">About Sara and <em class="turn">her practice</em></h2>
+    <p class="rv" style="--d:1"><span class="slot">Sara: how she came to this work and what her practice looks like today, up to 70 words</span></p>
+    <span class="ghost-lines rv" style="--d:1" aria-hidden="true"></span>
+    <dl class="facts rv" style="--d:2">
+      <div><dt>Based in</dt><dd><span class="slot">City, from Sara</span></dd></div>
+      <div><dt>Working with clients since</dt><dd><span class="slot">Year, from Sara</span></dd></div>
+      <div><dt>Credentials</dt><dd><span class="slot">From Sara, checked by the firm</span></dd></div>
+    </dl>
+    <a class="btn ghost rv" style="--d:3" href="#story">Watch her story <span class="arr"></span></a>
+  </div>
+</section>
+
+<section class="res trellis" id="resources">
+  <div class="res-head">
+    <h2 class="rv">From Sara's <em class="turn">desk</em></h2>
+    <p class="rv" style="--d:1">Notes, guides and conversations from Sara. Each one opens on her blog. <span class="draft">Topics and links from Sara</span></p>
+  </div>
+  <div class="cards">
+    <a class="rcard rv" href="#" aria-disabled="true">
+      <div class="im"><img src="assets/ai/res-reading.webp" alt="" loading="lazy"></div>
+      <div class="tx"><span class="kind">Guide</span><h3><span class="slot">Title of her first article</span></h3><p><span class="slot">One line on what it covers, up to 20 words</span></p><span class="go">Read on her blog <i></i></span></div>
+    </a>
+    <a class="rcard rv" style="--d:1" href="#" aria-disabled="true">
+      <div class="im"><img src="assets/ai/res-olive.webp" alt="" loading="lazy"></div>
+      <div class="tx"><span class="kind">Note</span><h3><span class="slot">Title of a short note</span></h3><span class="go">Read on her blog <i></i></span></div>
+    </a>
+    <a class="rcard rv" style="--d:2" href="#" aria-disabled="true">
+      <div class="im"><img src="assets/ai/res-planner.webp" alt="" loading="lazy"></div>
+      <div class="tx"><span class="kind">Conversation</span><h3><span class="slot">Title of a video or podcast episode</span></h3><span class="go">Watch on her blog <i></i></span></div>
+    </a>
+  </div>
+  <div class="res-foot rv"><a class="btn ghost" href="#" aria-disabled="true">All resources <span class="arr"></span></a><span class="draft">Blog address from Sara</span></div>
+</section>
+
+<section class="close" id="close" data-open-on-view>
+  <video id="f3" data-film autoplay muted loop playsinline poster="assets/film/garden-path.webp"><source src="assets/film/garden-path.mp4" type="video/mp4"></video>
+  <div class="card expand">
+    <span class="peek" aria-hidden="true">Book a conversation</span>
+    <div class="emboss" aria-hidden="true">W</div>
+    <h2>Because wealth is about more than <em class="turn">money.</em></h2>
+    <p class="what"><span class="slot">Sara: one line on what a first conversation is like, up to 20 words</span></p>
+    <a class="btn" href="#" aria-disabled="true">Book a conversation <span class="arr"></span></a>
+    <p style="margin-top:16px;font-size:13px;color:var(--ink-2)"><span class="draft">Scheduling link from Sara</span></p>
+  </div>
+  <button class="film-ctl" aria-controls="f3" aria-label="Pause film"></button>
+</section>
+</main>
+
+<footer class="foot2">
+  <div class="top">
+    <div><a class="mark" href="#top" aria-label="WORTH Wealth Management, home"><b>WORTH</b><small>Wealth Management</small></a><p class="tag">Because wealth is about more than money.</p></div>
+    <div><h4>Explore</h4><ul><li><a href="#letter">Her letter</a></li><li><a href="#story">Her story</a></li><li><a href="#who">Who she works with</a></li><li><a href="#first">How it starts</a></li><li><a href="#resources">Resources</a></li></ul></div>
+    <div><h4>Visit</h4><ul><li><span class="slot on-dark">Office address</span></li><li><span class="slot on-dark">Phone</span></li><li><span class="slot on-dark">Email</span></li></ul></div>
+    <div><h4>Start here</h4><p style="margin-bottom:20px">A first conversation, at your pace.</p><a class="btn light" href="#close">Book a conversation <span class="arr"></span></a></div>
+  </div>
+  <div class="legal2">
+    <p>[Registered representative and investment adviser statement, verbatim from the firm: securities and advisory services offered through ..., Member FINRA/SIPC.] [CONFIRM: which firm applies]</p>
+    <p>[Doing-business-as statement: WORTH Wealth Management and the firm named above are not affiliated, if the firm requires it.] [Tax and legal advice line, verbatim from the firm.]</p>
+    <p>[State licensing statement: Sara Adams may only conduct business with residents of the states in which she is properly registered. Verbatim from the firm, with the Licenses page link.]</p>
+    <p>[Compliance review number to be assigned on compliance review.] Review draft, not for distribution. Atmosphere images and films on this page are AI-generated stand-ins for review.</p>
+  </div>
+  <nav class="links" aria-label="Legal"><a href="https://brokercheck.finra.org/" rel="noopener">BrokerCheck</a><a href="#">SIPC</a><a href="#">Licenses</a><a href="#">Privacy</a><a href="#">Terms of Use</a><a href="#">Form ADV</a><a href="#">Form CRS</a><span>&copy; 2026 WORTH Wealth Management</span></nav>
+  <span class="giant" aria-hidden="true">WWM</span>
+</footer>
+
+<script src="shared/motion.js"></script>
+<script>
+// Envelope: no pin; runs while the letter top moves from 85% to 23% of the screen. Flap opens (0 to .25), sheet rises and grows (.2 to .7), envelope drops away (.5 to .85).
+(function () {
+  var env = document.getElementById('env');
+  var c = function (v) { return v < 0 ? 0 : v > 1 ? 1 : v; };
+  R2.frame.push(function (still, vh) {
+    var r = env.getBoundingClientRect();
+    var e = (still || innerWidth < 900) ? 1 : c((vh * 0.85 - r.top) / (vh * 0.62));
+    var f = c(e / 0.25), k = c((e - 0.2) / 0.5), d = c((e - 0.5) / 0.35);
+    env.style.setProperty('--f', f.toFixed(4)); env.style.setProperty('--k', k.toFixed(4)); env.style.setProperty('--d', d.toFixed(4));
+    env.classList.toggle('open', f > 0.5);
+  });
+})();
+</script>
+</body>
+</html>
